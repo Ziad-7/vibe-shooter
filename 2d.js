@@ -594,6 +594,15 @@ function animate() {
         if (dist - enemy.radius - player.radius < 1) {
             cancelAnimationFrame(animationId);
             isGameOver = true;
+            
+            const currentBest = parseInt(localStorage.getItem('vibeShooterBest2D')) || 0;
+            if (score > currentBest && score > 0) {
+                localStorage.setItem('vibeShooterBest2D', score);
+                document.getElementById('highScoreText').style.display = 'block';
+            } else {
+                document.getElementById('highScoreText').style.display = 'none';
+            }
+            
             finalScoreEl.innerHTML = score;
             gameOverModal.style.display = 'block';
         }

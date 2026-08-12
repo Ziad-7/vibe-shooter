@@ -495,6 +495,15 @@ function animate() {
             // Check player collision
             if (enemy.position.distanceTo(playerPos) < 3.0) {
                 isGameOver = true;
+                
+                const currentBest = parseInt(localStorage.getItem('vibeShooterBest3D')) || 0;
+                if (score > currentBest && score > 0) {
+                    localStorage.setItem('vibeShooterBest3D', score);
+                    document.getElementById('highScoreText').style.display = 'block';
+                } else {
+                    document.getElementById('highScoreText').style.display = 'none';
+                }
+                
                 document.getElementById('finalScoreEl').innerText = score;
                 document.getElementById('gameOverModal').style.display = 'block';
             }

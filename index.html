@@ -13,6 +13,11 @@
             <a href="2d.html" class="menu-btn">2D Game</a>
             <a href="3d.html" class="menu-btn">3D Game</a>
         </div>
+        <div id="highScores" style="margin-top: 30px; padding: 15px; border: 2px solid #00ffff; border-radius: 10px; background: rgba(0,255,255,0.1); color: #fff; font-family: sans-serif; text-shadow: 0 0 10px #00ffff; display: inline-block;">
+            <h3 style="margin: 0 0 15px 0;">🏆 Leaderboard 🏆</h3>
+            <p style="margin: 10px 0; font-size: 18px;">Best 2D Score: <strong id="best2d" style="color: #00ffff; font-size: 22px;">0</strong></p>
+            <p style="margin: 10px 0; font-size: 18px;">Best 3D Score: <strong id="best3d" style="color: #ff00ff; font-size: 22px;">0</strong></p>
+        </div>
     </div>
     
     <div class="audio-controls">
@@ -26,6 +31,11 @@
             window.AudioEngine.init();
             window.AudioEngine.playMusic();
         }, { once: true });
+
+        const best2d = localStorage.getItem('vibeShooterBest2D') || 0;
+        const best3d = localStorage.getItem('vibeShooterBest3D') || 0;
+        document.getElementById('best2d').innerText = best2d;
+        document.getElementById('best3d').innerText = best3d;
 
         const musicBtn = document.getElementById('toggleMusicBtn');
         const sfxBtn = document.getElementById('toggleSfxBtn');
