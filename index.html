@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Shooter</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1 class="game-title">VIBE SHOOTER</h1>
+        <div class="button-group">
+            <a href="2d.html" class="menu-btn">2D Game</a>
+            <a href="3d.html" class="menu-btn">3D Game</a>
+        </div>
+    </div>
+    
+    <div class="audio-controls">
+        <button id="toggleMusicBtn" class="audio-btn">🎵 Music: ON</button>
+        <button id="toggleSfxBtn" class="audio-btn">🔊 SFX: ON</button>
+    </div>
+
+    <script src="audio.js"></script>
+    <script>
+        document.body.addEventListener('click', () => {
+            window.AudioEngine.init();
+            window.AudioEngine.playMusic();
+        }, { once: true });
+
+        const musicBtn = document.getElementById('toggleMusicBtn');
+        const sfxBtn = document.getElementById('toggleSfxBtn');
+        
+        musicBtn.innerText = `🎵 Music: ${window.AudioEngine.state.musicMuted ? 'OFF' : 'ON'}`;
+        sfxBtn.innerText = `🔊 SFX: ${window.AudioEngine.state.sfxMuted ? 'OFF' : 'ON'}`;
+
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.AudioEngine.init();
+            window.AudioEngine.playMusic();
+            const muted = window.AudioEngine.toggleMusic();
+            musicBtn.innerText = `🎵 Music: ${muted ? 'OFF' : 'ON'}`;
+        });
+        
+        sfxBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.AudioEngine.init();
+            const muted = window.AudioEngine.toggleSfx();
+            sfxBtn.innerText = `🔊 SFX: ${muted ? 'OFF' : 'ON'}`;
+        });
+    </script>
+</body>
+</html>

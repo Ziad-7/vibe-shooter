@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Shooter 3D</title>
+    <link rel="stylesheet" href="3d.css">
+</head>
+<body>
+    <div id="uiContainer">
+        <div id="scoreContainer">Score: <span id="scoreEl">0</span></div>
+        <div id="comboUI" style="display: none;">Combo: x<span id="comboMultiplier">1</span></div>
+        <div id="waveUI" class="center-banner" style="display: none;">WAVE 1</div>
+        <div id="powerupUI" style="display: none;">
+            🔥 Power-Up: <span id="powerupName">Spread Shot</span> (<span id="powerupTime">10</span>s)
+        </div>
+        <a href="index.html" id="backToMenuBtn">Back to Menu</a>
+        <div id="crosshair"></div>
+        <div id="instructions" class="subtitle-instructions" style="display: none;">
+            WASD = Move, MOUSE = Look, CLICK = Shoot &nbsp;&nbsp;|&nbsp;&nbsp; Press ESC to Pause
+        </div>
+        <div id="gameOverModal" style="display: none;">
+            <h1 id="finalScoreEl">0</h1>
+            <p>Points</p>
+            <button id="restartBtn">RESTART</button>
+        </div>
+        
+        <div id="setupMenu" class="setup-modal">
+            <h2>3D Game Setup</h2>
+            
+            <div class="setting-group">
+                <label>View:</label>
+                <select id="setupView">
+                    <option value="1st">1st Person</option>
+                    <option value="3rd">3rd Person</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>Difficulty:</label>
+                <select id="setupDiff">
+                    <option value="easy">Easy</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>Map Visuals:</label>
+                <select id="setupMap">
+                    <option value="cyan">Cyan Grid</option>
+                    <option value="magenta">Magenta Grid</option>
+                    <option value="matrix">Matrix Green</option>
+                </select>
+            </div>
+            
+            <button id="startGameBtn" class="primary-btn">Start Game</button>
+        </div>
+        
+        <div class="audio-controls">
+            <button id="toggleMusicBtn" class="audio-btn">🎵 Music: ON</button>
+            <button id="toggleSfxBtn" class="audio-btn">🔊 SFX: ON</button>
+        </div>
+    </div>
+    
+    <script src="audio.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="3d.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0f13; /* Very dark grayish-blue */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    text-align: center;
+}
+
+.game-title {
+    font-size: 80px;
+    color: white;
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-btn {
+    display: inline-block;
+    width: 250px;
+    background-color: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.menu-btn:hover {
+    background-color: #00ffff;
+    color: #0f0f13;
+    box-shadow: 0 0 30px #00ffff;
+    transform: scale(1.05);
+}
+
+.audio-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.audio-btn {
+    background: rgba(15, 15, 19, 0.8);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    transition: all 0.3s;
+}
+
+.audio-btn:hover {
+    background: #00ffff;
+    color: #0f0f13;
+}
